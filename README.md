@@ -1,6 +1,6 @@
 initialize socketstream on server  
 file : "/app.js"  
-```javscript
+```javascript
 var http=require('http');
 var ss=require('socketstream');
 var server = http.Server(ss.http.middleware);
@@ -9,7 +9,7 @@ ss.start(server);
 ```
 routing  
 file : "/app.js"  
-```javscript
+```javascript
 ss.http.route('/',function (request,response) {
 	console.log('request for "/" received');
 });
@@ -21,7 +21,7 @@ view : an html file from "/client/views" folder
 css : array of file or folder names from "/client/css" folder  
 code : array of file or folder names from "/client/code" folder  
 tmpl : array of file or folder names from "/client/templates" folder  
-```javscript
+```javascript
 ss.client.define('main',{
 	view:'app.html',
 	css:['libs/reset.css','app.css'],
@@ -32,7 +32,7 @@ ss.client.define('main',{
 
 serve client  
 file : "/app.js"  
-```javscript
+```javascript
 ss.http.route('/',function (request,response) {
 	response.serveClient('main');
 });
@@ -40,7 +40,7 @@ ss.http.route('/',function (request,response) {
 
 initialize socketstream on client  
 file : "/client/code/<code-directory>/entry.js"  
-```javscript
+```javascript
 window.ss=require('socketstream');
 ss.server.on('ready',function () {
 	require('<main module of client code>');
@@ -49,7 +49,7 @@ ss.server.on('ready',function () {
 
 defining rpc actions  
 file : "/server/rpc/<rpcFile>"  
-```javscript
+```javascript
 exports.actions=function (request,response,ss) {
 	var actions={};
 	actions.add=function (param1,param2) {
@@ -61,7 +61,7 @@ exports.actions=function (request,response,ss) {
 ```
 invoke rpc action  
 file: "/client/code/<clientCodeFile>"  
-```javscript
+```javascript
 ss.rpc('<rpcFile>.add',value1,value2,function (result) {
 	console.log(result);
 });
@@ -69,7 +69,7 @@ ss.rpc('<rpcFile>.add',value1,value2,function (result) {
 
 defining middleware  
 file : "/server/middleware/<middlewareFile>"  
-```javscript
+```javascript
 exports.logRequest=function () {
 	return function (request,response,next) {
 		console.log('request received at '+new Date());
@@ -79,7 +79,7 @@ exports.logRequest=function () {
 ```
 using middleware  
 file : "/server/rpc/<rpcFile>"  
-```javscript
+```javascript
 exports.actions=function (request,response,ss) {
 	request.use('<middlewareFile>.logRequest');
 	var actions={};
