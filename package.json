@@ -1,0 +1,13 @@
+{
+	"name": "ssSample",
+	"description": "An awesome real time application",
+	"version": "0.0.1",
+	"author": "cyril panicker",
+	"private": true,
+	"dependencies": {
+		"socketstream": "0.3.x"
+	},
+	"scripts":{
+		"start":"node app.js"
+	}
+}
