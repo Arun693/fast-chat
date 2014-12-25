@@ -1,6 +1,6 @@
-exports.logRequest=function () {
+exports.logMessage=function () {
 	return function (request,response,next) {
-		console.log('request received at '+new Date());
+		console.log('message received : "'+request.params[0]+'"');
 		next();
 	};
 };

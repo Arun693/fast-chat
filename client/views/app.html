@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="app">
 <head>
 	<meta charset="UTF-8">
 	<title></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<SocketStream/>
 </head>
-<body>
-	Hello World
+<body ng-controller="MessageController">
+	<form ng-submit="sendMessage(messageToBeSent)" novalidate>
+		<input ng-model="messageToBeSent"/>
+		<button type="submit">Submit</button>
+	</form>
+	<div>
+		<span ng-bind="successMessage"></span>
+		<span ng-bind="errorMessage"></span>
+	</div>
+	<table>
+		<tr ng-repeat="message in messages track by $index">
+			<td>{{message}}</td>
+		</tr>
+	</table>
 </body>
 </html>
