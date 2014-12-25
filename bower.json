@@ -1,0 +1,6 @@
+{
+	"name": "ssSample",
+	"dependencies": {
+		"angular": "*"
+	}
+}
