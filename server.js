@@ -13,5 +13,7 @@ ss.http.route('/',function (request,response) {
 	response.serveClient('helloWorld');
 });
 
-server.listen(8000);
+server.listen(80,function () {
+	console.log('server listening at port 80');
+});
 ss.start(server);
