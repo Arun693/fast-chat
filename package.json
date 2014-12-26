@@ -1,6 +1,6 @@
 {
-	"name": "ssSample",
-	"description": "An awesome real time application",
+	"name": "fast-chat",
+	"description": "real time chat application",
 	"version": "0.0.1",
 	"author": "cyril panicker",
 	"private": true,
@@ -8,6 +8,7 @@
 		"socketstream": "0.3.x"
 	},
 	"scripts":{
-		"start":"node app.js"
-	}
+		"start":"node server.js"
+	},
+	"main": "server.js"
 }
