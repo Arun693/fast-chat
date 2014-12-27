@@ -7,14 +7,10 @@
 	<SocketStream/>
 </head>
 <body ng-controller="MessageController">
-	<form ng-submit="sendMessage(messageToBeSent)" novalidate>
-		<input ng-model="messageToBeSent"/>
-		<button type="submit">Submit</button>
+	<form ng-submit="end()" novalidate>
+		<input ng-model="message" ng-change="send(message)"/>
+		<button type="submit">End Message</button>
 	</form>
-	<div>
-		<span ng-bind="successMessage"></span>
-		<span ng-bind="errorMessage"></span>
-	</div>
 	<table>
 		<tr ng-repeat="message in messages track by $index">
 			<td>{{message}}</td>

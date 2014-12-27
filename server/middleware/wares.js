@@ -1,6 +1,10 @@
 exports.logMessage=function () {
 	return function (request,response,next) {
-		console.log('message received : "'+request.params[0]+'"');
+		if (!request.params[0]) {
+			console.log('message ended');
+		} else {
+			console.log('message received : "'+request.params[0]+'"');
+		}
 		next();
 	};
 };
